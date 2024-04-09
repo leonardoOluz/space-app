@@ -16,7 +16,7 @@ const ListaImagem = styled.ul`
    flex-wrap: wrap;
    gap: 1.5rem;
 `;
-const Galeria = ({ fotos = [] }) => {
+const Galeria = ({ fotos = [], aoFotoSelecionada }) => {
     return (
         <>
             <Tags />
@@ -24,7 +24,11 @@ const Galeria = ({ fotos = [] }) => {
                 <SecaoFluida>
                     <Titulo>Navegue pela galeria</Titulo>
                     <ListaImagem>
-                        {fotos.map(foto => <Imagem key={foto.id} foto={foto} />)}
+                        {fotos.map(foto => <Imagem
+                            aoZoomSolicitado={aoFotoSelecionada}
+                            key={foto.id}
+                            foto={foto}
+                        />)}
                     </ListaImagem>
                 </SecaoFluida>
                 <Populares />
