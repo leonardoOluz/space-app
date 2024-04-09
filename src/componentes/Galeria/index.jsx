@@ -16,7 +16,7 @@ const ListaImagem = styled.ul`
    flex-wrap: wrap;
    gap: 1.5rem;
 `;
-const Galeria = ({ fotos = [], aoFotoSelecionada }) => {
+const Galeria = ({ fotos = [], aoFotoSelecionada, aoALternarFavorito }) => {
     return (
         <>
             <Tags />
@@ -26,6 +26,7 @@ const Galeria = ({ fotos = [], aoFotoSelecionada }) => {
                     <ListaImagem>
                         {fotos.map(foto => <Imagem
                             aoZoomSolicitado={aoFotoSelecionada}
+                            aoALternarFavorito={aoALternarFavorito}
                             key={foto.id}
                             foto={foto}
                         />)}
