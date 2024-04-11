@@ -6,8 +6,9 @@ import Banner from "./componentes/Banner";
 import backgroundImage from './assets/banner.png';
 import Galeria from "./componentes/Galeria";
 import fotos from "./fotos.json";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import ModalZoom from "./componentes/ModalZoom";
+import Rodape from "./componentes/Rodape";
 
 const FundoGradiente = styled.div`
   background: linear-gradient(174.61deg, #041833 4.16%, #04244F 48%, #154580 96.76%);
@@ -32,14 +33,23 @@ const ConteudoGaleria = styled.section`
   flex-grow: 1;
 `;
 
-
-
 const App = () => {
   const [fotosDaGaleria, setFotosDaGaleria] = useState(fotos)
+  const [filtro, setFiltro] = useState('')
+  const [tag, setTag] = useState(0)
   const [fotoSelecionada, setFotoSelecionada] = useState(null)
 
+  useEffect(() => {
+    const fotosFiltradas = fotos.filter(foto => {
+      const filtroPorTag = !tag || foto.tagId === tag;
+      const filtroPortitulo = !filtro || foto.titulo.toLowerCase().includes(filtro.toLowerCase());
+      return filtroPorTag && filtroPortitulo
+    })
+    setFotosDaGaleria(fotosFiltradas)
+  }, [filtro, tag])
+
   const aoALternarFavorito = (foto) => {
-    
+
     if (foto.id === fotoSelecionada?.id) {
       setFotoSelecionada({
         ...fotoSelecionada,
@@ -59,7 +69,10 @@ const App = () => {
     <FundoGradiente>
       <EstiloGlobais />
       <AppContainer>
-        <Cabecalho />
+        <Cabecalho
+          filtro={filtro}
+          setFiltro={setFiltro}
+        />
         <MainContainer>
           <BarraLateral />
           <ConteudoGaleria>
@@ -71,6 +84,7 @@ const App = () => {
               fotos={fotosDaGaleria}
               aoFotoSelecionada={foto => setFotoSelecionada(foto)}
               aoALternarFavorito={aoALternarFavorito}
+              setTag={setTag}
             />
           </ConteudoGaleria>
         </MainContainer>
@@ -80,6 +94,7 @@ const App = () => {
         aoFechar={() => setFotoSelecionada(null)}
         aoALternarFavorito={aoALternarFavorito}
       />
+      <Rodape />
     </FundoGradiente>
   )
 }

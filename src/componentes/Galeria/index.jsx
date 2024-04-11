@@ -16,10 +16,10 @@ const ListaImagem = styled.ul`
    flex-wrap: wrap;
    gap: 1.5rem;
 `;
-const Galeria = ({ fotos = [], aoFotoSelecionada, aoALternarFavorito }) => {
+const Galeria = ({ fotos = [], aoFotoSelecionada, aoALternarFavorito, setTag }) => {
     return (
         <>
-            <Tags />
+            <Tags setTag={setTag} />
             <GaleriaContainer>
                 <SecaoFluida>
                     <Titulo>Navegue pela galeria</Titulo>
