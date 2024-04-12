@@ -2,7 +2,7 @@ import { styled } from "styled-components"
 import BotaoIcone from "../../BotaoIcone"
 
 const Figure = styled.figure`
-    width: ${props => props.$expandida ? '90%' : '440px'};
+    width: ${props => props.$expandida ? '90%' : '380px'};
     max-width: 100%;
     margin: 0;
     display: flex;

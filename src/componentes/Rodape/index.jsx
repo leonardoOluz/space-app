@@ -25,17 +25,17 @@ const Rodape = () => {
                 <ListaDoRodapeEstilizada>
                     <li>
                         <a href='https://www.facebook.com/?locale=pt_BR'>
-                            <img src='/public/imagens/sociais/facebook.svg' alt='logo facebook' />
+                            <img src='/imagens/sociais/facebook.svg' alt='logo facebook' />
                         </a>
                     </li>
                     <li>
                         <a href='https://www.instagram.com/'>
-                            <img src='/public/imagens/sociais/twitter.svg' alt='logo facebook' />
+                            <img src='/imagens/sociais/twitter.svg' alt='logo twitter' />
                         </a>
                     </li>
                     <li>
                         <a href='https://twitter.com/home?lang=pt-br'>
-                            <img src='/public/imagens/sociais/instagram.svg' alt='logo facebook' />
+                            <img src='/imagens/sociais/instagram.svg' alt='logo instagram' />
                         </a>
                     </li>
                 </ListaDoRodapeEstilizada>
